@@ -38,6 +38,7 @@ class Debug:
                             raise Exception(
                                 'Received error code {error_id} while fetching emojis.'.format(error_id=resp.status))
         zip.close()
+        emoji_session.close()
 
         memfile.seek(0)
         await ctx.send(file=discord.File(memfile, filename='emojis.zip'))
