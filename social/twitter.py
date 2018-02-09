@@ -46,6 +46,8 @@ class Twitter:
 
     @property
     def webhook(self):
+        # webhooks are scary, so here's the comprehensive documentation:
+        # http://discordpy.readthedocs.io/en/rewrite/api.html#webhook-support
         wh_id, wh_token = TWITTER_WEBHOOK
         hook = discord.Webhook.partial(id=wh_id, token=wh_token, adapter=discord.AsyncWebhookAdapter(self.twitter_session))
         return hook
